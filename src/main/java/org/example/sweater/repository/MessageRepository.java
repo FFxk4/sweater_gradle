@@ -1,7 +1,11 @@
 package org.example.sweater.repository;
 
-import org.example.sweater.domain.Message;
+import org.example.sweater.domain.DotMessage;
 import org.springframework.data.repository.CrudRepository;
 
-public interface MessageRepository extends CrudRepository<Message, Long> {
+import java.util.List;
+
+public interface MessageRepository extends CrudRepository<DotMessage, Long> {
+
+	List<DotMessage> findByTag(String tag);
 }
