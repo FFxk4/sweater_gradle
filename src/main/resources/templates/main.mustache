@@ -1,6 +1,33 @@
 <html>
+<style>
+    .center {
+        width: 500px; /* Ширина элемента в пикселах */
+        padding: 10px; /* Поля вокруг текста */
+        margin: auto; /* Выравниваем по центру */
+        background: #e6f6ff; /* Цвет фона */
+    }
+</style>
 <body>
-    <div>{{some}}</div>
-    <a href="greeting">I want to another greeting!</a>
+    <div class="center">
+        <form name="dotmessage" action="/add" method="post" >
+            <input name="text" type="text" placeholder="Введите сообщение">
+            <input name="tag" type="text" placeholder="Введите тег">
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+    <div class="center">
+        <form name="dotfilter" action="/filter" method="post" >
+            <input name="filter" type="text">
+            <button type="submit">Найти</button>
+        </form>
+    </div>
+    <div class="center">Список сообщений</div>
+    {{#messages}}
+    <div class="center">
+        <b>{{id}}</b>
+        <span>{{text}}</span>
+        <i>{{tag}}</i>
+    </div>
+    {{/messages}}
 </body>
 </html>
